@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>R1 --> Bin2Dec</title>
+</head>
+<body>
+  <h1>Conversor de Bin para Dec</h1>
+  <hr>
+
+  <form action="#">
+    <label for="binario">Binário:</label>
+    <input id="binario" name="binario" type="text" placeholder="ex.: 1111">
+    <button type="button" onclick="hello()">Converter</button>
+  </form>
+  <hr>
+  <div>
+    <h2>Resultado</h2>
+    <p id="resultado"></p>
+  </div>
+  <hr>
+
+  <script>
+    function hello(){
+      let p_resultado = document.getElementById('resultado')
+      let cx_texto = document.getElementById('binario')
+
+      let numero = Number(cx_texto.value)
+      
+      const decimal = converter_decimal(numero)
+      p_resultado.textContent = `Em Decimal é ${decimal}!`
+
+      //alert(`Você digitou ${numero}!`)
+    }
+
+
+    function converter_decimal(binario){
+      const M = Math.floor(binario / 1000)
+      let resto = binario % 1000
+      const C = Math.floor(resto / 100)
+      resto = resto % 100
+      const D = Math.floor(resto / 10)
+      const U = resto % 10
+    
+      const decimal = M*8 + C*4 + D*2 + U*1
+    
+      return decimal
+    }
+
+  </script>
+
+</body>
+</html>
