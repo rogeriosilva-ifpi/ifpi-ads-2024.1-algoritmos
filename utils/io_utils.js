@@ -50,3 +50,11 @@ export function get_text(mensagem){
 export function round_number(number, decimal_places=2){
   return number.toFixed(decimal_places)
 }
+
+export function enter_to_continue(){
+  get_text('Enter to continue...')
+}
+
+export function clear_screen(){
+  console.clear()
+}
