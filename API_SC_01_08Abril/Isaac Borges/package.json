@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "name": "api_sc---isaac-borges-laranjeira",
+  "version": "1.0.0",
+  "description": "",
+  "main": "g1_senha.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
