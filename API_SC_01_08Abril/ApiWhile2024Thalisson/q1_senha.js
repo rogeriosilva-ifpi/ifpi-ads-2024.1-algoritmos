@@ -7,7 +7,7 @@ function main(){
     let SenhaDefinida = "";
     let Digitos = 0;
     while(Digitos <= DigitosSenha ){
-        if(Numero != NumeroAnterior){
+        if(Numero != NumeroAnterior){ // ou antecessor, sucessor
             SenhaDefinida+=Numero;
             Digitos++;
         }

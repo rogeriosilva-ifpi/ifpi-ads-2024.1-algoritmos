@@ -10,7 +10,9 @@ function gerar_senha_numerica(n_caracteres){
     while (n_caracteres > contador){
         caractere1 = random_number(9)
 
+        // COMENTARIO só tá validando 1x.. 
         if (caractere1 === placeholder || caractere1 === placeholder-1 || caractere1 === placeholder+1){
+            // E se o próximo número tbm for igual ao anteiror??
             caractere1 = random_number(9)
         }
 

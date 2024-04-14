@@ -1,4 +1,4 @@
-import {question} from "readline-sync"
+import { question } from "readline-sync"
 
 function classificar_media(media){
     if(media < 2){
@@ -48,8 +48,10 @@ function main(){
     let menor_nota = 11//coloquei um número fora do intervalo para que sempre o primeiro aluno tenha a menor nota, idenpeente de qual seja
 
     while(sexo === "m" || sexo === "f"){
+        // COMENTARIO: Deveria perdir antes e ao final
         sexo = question("Insira o sexo do aluno(m/f): ")
         if(sexo === "m" || sexo === "f"){
+            // nunca será outra opcao
             let nota = get_number_in_range(1, 10, "Digite a nota do aluno: ")
         
             if(nota > maior_nota){

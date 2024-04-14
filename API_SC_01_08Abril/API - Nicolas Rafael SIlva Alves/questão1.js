@@ -1,4 +1,10 @@
-import { escreva,pergunta,get_positive_number } from "./Funções_API/io.js"
+/**
+ * Faltou identar o código. 
+ * Tá tudo colado à esquerda
+ */
+
+import { escreva, get_positive_number, pergunta } from "./Funções_API/io.js"
+
 
 function main(){
 

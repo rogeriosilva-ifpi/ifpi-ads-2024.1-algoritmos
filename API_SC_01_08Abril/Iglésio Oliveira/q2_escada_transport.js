@@ -1,3 +1,5 @@
+// Não entendi... testei e só fala que nao coseguirá perder
+
 import { question } from "readline-sync"
 
 function show_in_console(mensagem){

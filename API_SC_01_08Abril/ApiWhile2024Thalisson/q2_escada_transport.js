@@ -1,4 +1,5 @@
-const { question } = require("readline-sync");
+// const { question } = require("readline-sync");
+import { question } from "readline-sync";
 
 function main(){
     let PerderPeso = 7000;

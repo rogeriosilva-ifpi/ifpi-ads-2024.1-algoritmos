@@ -1,5 +1,6 @@
 import { get_positive_number, show } from "./utils/io_utils.js"
 
+// Digitos repetidos
 function main(){
     const digitos_senhas = get_positive_number('Quantidade de dígitos da senha: ')
     let contador = 0

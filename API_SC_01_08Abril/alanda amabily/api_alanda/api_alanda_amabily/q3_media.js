@@ -1,4 +1,9 @@
-import { get_number, print, get_text} from '../utils/io_utils.js'
+/**
+ * Comentário: 
+ * - Usou código de aula (consultou)
+ * - Atividade era sem Consulta
+ */
+import { get_number, get_text, print } from '../utils/io_utils.js';
 
 function main(){
     var sexo = get_text('Sexo do aluno: (F OU M)')

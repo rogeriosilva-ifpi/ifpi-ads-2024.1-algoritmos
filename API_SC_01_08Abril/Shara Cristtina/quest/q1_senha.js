@@ -1,4 +1,4 @@
-import { get_number_min, mostre, positive_number } from '../quest/utils.js'
+import { get_number_min, mostre } from '../quest/utils.js'
 
 function main(){
     let digitos = get_number_min('Insira o número de dígitos que deseja para sua senha:  ',0)
@@ -9,7 +9,7 @@ function main(){
         digitos--
         algarismo--
         let senha_anterior
-        let primeiro_algsenha_ant = Math.floor(senha_anterior/(algarismo*10^(algarismo-1))
+        let primeiro_algsenha_ant = Math.floor(senha_anterior/(algarismo*10^(algarismo-1)))
 
         if(algarismo!=primeiro_algsenha_ant && algarismo<10 && algarismo>0){
             mostre(algarismo)

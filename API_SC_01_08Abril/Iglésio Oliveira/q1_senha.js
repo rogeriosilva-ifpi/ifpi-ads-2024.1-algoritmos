@@ -1,4 +1,6 @@
-import {question} from "readline-sync"
+// COMENTARIOS: Tá gerando senhas menores que o solictado
+// Validacao do Digito tá precária, deveria ser em while até ser valido
+import { question } from "readline-sync"
 
 function gerar_digito(){
     return Math.round(Math.random()*10)

@@ -1,5 +1,6 @@
 import { get_number_random, get_text, print } from "../Utils/utils.js";
 
+// NÃO TÁ VALIDANDO OS DIGITOS
 function main() {
     const TAMANHO_SENHA = 1_000_000;
     let senha = get_number_random(TAMANHO_SENHA);
