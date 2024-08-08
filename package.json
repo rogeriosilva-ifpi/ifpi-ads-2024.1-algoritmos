@@ -7,10 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Rogério Silva <rogerio410@gmail.com>",
   "license": "ISC",
   "type": "module",
   "dependencies": {
     "readline-sync": "^1.4.10"
-  }
+  },
+  "repository": "git@rogeriosilva-ifpi.github.com:rogeriosilva-ifpi/ifpi-ads-2024.1-algoritmos.git"
 }
