@@ -1,76 +1,103 @@
 print("BEM-VINDO AO ENZOAPP")
 
 def main():
-    print("=" * 20)
-    var hospedagem = str(input("Vamos começar sua hospedagem. Por favor, digite S: "))
-    var quantidade_single = 0
-    var quantidade_duplo = 0
-    var quantidade_triplo = 0
-    var quantidade_quadruplo = 0
-    var pessoas_cadastradas = 0
-    print("=" * 20)
+    count = 0
+    count_pessoas = 0
+    quanto_simples = 0
+    quarto_duplo = 0
+    quarto_triplo = 0
+    quarto_quadruplo = 0
 
-    if hospedagem == "S":
-        var programa = 0
-        while programa == 0:
-            var idade = int(input("Idade desse hóspede(número zero cadastra um quarto): "))
+    while count != 1:
+        idade = int(input("Por favor, digite a idade do cliente: "))
+        count_pessoas += 1
+        
+        if idade == 0 and idade < 18 or idade > 100 and idade == 0:
+            print("Essa idade não é contabilizada.")
+            count_pessoas -= 1
             
-            if idade < 18 or idade > 100:
-                print("Idade não permitida, tente novamente.")
-                var idade = int(input("Idade do hóspede: "))
-            else:
-                pessoas_cadastradas += 1
-
-            if idade == 0:
-                if pessoas_cadastradas == 1:
-                    quantidade_single += 1
-                    var hospede = int(input("Digite 0 se pararemos aqui: "))
-                elif pessoas_cadastradas == 2:
-                    quantidade_duplo += 1
-                    var hospede = int(input("Digite 0 se pararemos aqui: "))
-                elif pessoas_cadastradas == 3:
-                    quantidade_triplo += 1
-                    var hospede = int(input("Digite 0 se pararemos aqui: "))
+        if idade == 0:
+            idade = 1
+            if count_pessoas != 4:
+                pergunta = input("Deseja continuar(sim/nao)? ").upper()
+                if pergunta == 'SIM':
+                    idade = 1
+                elif pergunta == 'NAO':
+                    idade = 0
                 else:
-                    quantidade_quadruplo +=1
-                    var hospede = int(input("Digite 0 se pararemos aqui: "))
+                    pass
 
-                if hospede == 0:
-                    programa = 1
-                    const noites = int(input("Quantas noites será a reserva? "))
-                    return reserva_valor(quantidade_single,quantidade_duplo,quantidade_triplo,quantidade_quadruplo,noites)
-                    
-def reserva_valor(n1,n2,n3,n4,n5):
-    var single = n1 * n5 * 200
-    var duplo = n2 * n5 * 280
-    var triplo = n3 * n5 * 360
-    var quadruplo = n4 * n5 * 440
+            if count_pessoas == 1:
+                quanto_simples += 1
+                if pergunta == 'SIM':
+                    print("Quarto finalizado, indo para o próximo. Digite 0 no primeiro cliente do próximo, se quiser parar().")
+                count_pessoas = 0
+        
+            elif count_pessoas == 2:
+                quarto_duplo += 1
+                if pergunta == 'SIM':
+                    print("Quarto finalizado, indo para o próximo. Digite 0 no primeiro cliente do próximo, se quiser parar.")
+                count_pessoas = 0
+               
+            elif count_pessoas == 3:
+                quarto_triplo += 1
+                if pergunta == 'SIM':
+                    print("Quarto finalizado, indo para o próximo. Digite 0 no primeiro cliente do próximo, se quiser parar.")
+                count_pessoas = 0
+                
+            else:
+                pass
+            
 
-    print("-=" * 25)
-    print(''' Você terá de pagar {:.2f} R$ por quarto single/dia.
-        Você terá de pagar {:.2f} R$ por quarto duplo/dia.
-        Você terá de pagar {:.2f} R$ por quarto triplo/dia.
-        Você terá de pagar {:.2f} R$ por quarto quádruplo/dia.'''.format(single,duplo,triplo,quadruplo))
-    print("-=" * 25)
+        if count_pessoas == 4:
+            print("Quarto finalizado, indo para o próximo. Digite 0 no primeiro cliente do próximo, se quiser parar.")
+            print("+=" * 30)
+            quarto_quadruplo += 1
+            count_pessoas = 0
+    
+        if count_pessoas == 0 and idade == 0:
+            count == 1 
+            break          
+    noites_reserva = int(input("Quantas noites vão ser de reserva? "))
 
-    var total_reserva = single + duplo + triplo + quadruplo
-    print("O valor total ficou {:.2f} R$".format(total_reserva))
+    print(''' ===============================================
+                  Preço definido por dia para quarto single = {} R$
+                  Preço definido por dia para quarto duo = {} R$
+                  Preço definido por dia para quarto triple = {} R$
+                  Preço definido por dia para quarto quádruplo = {} R$
+                  '''.format(reserva_single(noites_reserva,quanto_simples),reserva_duo(noites_reserva,quarto_duplo),reserva_trio(noites_reserva,quarto_triplo),reserva_quad(noites_reserva,quarto_quadruplo)))
+            
+    total = (reserva_single(noites_reserva,quanto_simples) + reserva_duo(noites_reserva,quarto_duplo) + reserva_trio(noites_reserva,quarto_triplo) + reserva_quad(noites_reserva,quarto_quadruplo)) * noites_reserva
+    print(" O Total a pagar é = {:.2f} R$".format(total))
 
-    var pix = total_reserva * 0.95
-    var credito_sem_juros = total_reserva / 3
-    var credito_com_juros = int(input("Escolha sua parcela com juros entre 3X a 12X: "))
-    var credito_com_juros2 = total_reserva * 0.105 * credito_com_juros
+    print(''' +++++++++++++++++++++++++++++++++++++++++++++++
+                  Pagando no PIX, você ganha desconto de 5% = {:.2f} R$
+                  Pagando no crédito,você pode dividir em até 3X sem juros.
+                  Pagando no Crédito com juros, você pode parcelar de 3X até 12X. O valor final para 12X é {:.2f} R$, por exemplo.'''.format(pagamentos_pix(total),credito_com_juros(total)))
+                
+def reserva_single(n,single):
+    quarto_single = (single * 200) / n
+    return quarto_single
+
+def reserva_duo(n,duo): 
+    quarto_duo = (duo * 280) / n
+    return quarto_duo
+
+def reserva_trio(n,triple):
+    quarto_triple = (triple * 360) / n
+    return quarto_triple
+
+def reserva_quad(n,quad):
+    quarto_quad = (quad * 440) / n
+    return quarto_quad
 
 
-    if credito_com_juros < 3 or credito_com_juros > 12:
-        print("Inválido, tente novamente.")
-        var credito_com_juros = int(input("Escolha sua parcela com juros entre 3X a 12X: "))
+def pagamentos_pix(valor):
+    valor_pago = valor * 0.95
+    return valor_pago
 
-    print("_" * 10)
-    print("Seção Extra")
-    print("Pagamento do valor total via PIX = {:.2f} R$".format(pix))
-    print("pagamento do valor total via CRÉDITO SEM JUROS = {:.2f} R$(Exemplo em caso de 3X, mas pode ser diminuída a parcela)".format(credito_sem_juros))
-    print("Pagamento via CRÉDITO COM JUROS = {:.2f} R$".format(credito_com_juros2))
-    print("_" * 10)
-
+def credito_com_juros(valor):
+    valor_calculado = (valor * 0.105 * 12) / 100
+    return valor_calculado
+   
 main()

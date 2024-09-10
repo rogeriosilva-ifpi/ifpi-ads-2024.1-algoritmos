@@ -43,6 +43,14 @@ export function print(mensagem){
   console.log(mensagem)
 }
 
+export function print_inline(valor){
+  process.stdout.write(valor)
+}
+
+export function break_line(){
+  print('\n')
+}
+
 export function get_text(mensagem){
   return question(mensagem)
 }
